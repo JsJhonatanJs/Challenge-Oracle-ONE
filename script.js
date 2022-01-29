@@ -1,6 +1,7 @@
 function encriptar() {
-  let cambiar = input.value;
-  let buscar = cambiar.search("^[a-z\u00f1 ]+$");
+  titulo.innerHTML = "Mensaje encriptado"
+  let cambiar = textTarea.value;
+  let buscar = cambiar.search("^[a-z\u00f1\n ]+$");
   let numero_0 = 0;
   let numero_1 = 1;
 
@@ -11,15 +12,16 @@ function encriptar() {
       numero_1 = numero_1 + 2;
     }
     cambiar = cambiar.toLowerCase();
-    input2.value = cambiar;
+    textTarea_2.value = cambiar;
   } else {
-    alert("Solo se permite letras en minusculas");
+    alerta(470, 3000, "error", "Solo se permite letras en minúsculas")
   }
 }
 
 function desencriptar() {
-  let cambiar = input.value;
-  let buscar = cambiar.search("^[a-z\u00f1 ]+$");
+  titulo.innerHTML = "Mensaje desencriptado"
+  let cambiar = textTarea.value;
+  let buscar = cambiar.search("^[a-z\u00f1\n ]+$");
   let numero_0 = 0;
   let numero_1 = 1;
 
@@ -30,40 +32,63 @@ function desencriptar() {
       numero_1 = numero_1 + 2;
     }
     cambiar = cambiar.toLowerCase();
-    input2.value = cambiar;
+    textTarea_2.value = cambiar;
   } else {
-    alert("Solo se permite letras en minusculas");
+    alerta(470, 3000, "error", "Solo se permite letras en minúsculas")
   }
 }
 
 function copio() {
-  let contenido = input2.value;
+  let contenido = textTarea_2.value;
   navigator.clipboard.writeText(contenido)
   .catch(() => {
-    nube = input2.value;
-    input2.select();
+    nube = textTarea_2.value;
+    textTarea_2.select();
     document.execCommand("copy");
-    input2.blur();
+    pegar.focus();
   });
+  alerta(210, 1500, "success", "Copiado")
 }
 
 function pego() {
   navigator.clipboard.readText()
-    .then((almacen) => (input.value = almacen))
+    .then((almacen) => (textTarea.value = almacen))
     .catch(() => {
-      input.value = nube;
+      textTarea.value = nube;
     });
 }
 
 function borrado() {
   
-  input.value = "";
+  textTarea.value = "";
 
 }
 
 function borrado1() {
   
-  input2.value = "";
+  textTarea_2.value = "";
+
+}
+
+function alerta(tamaño, tiempo, icono, palabra) {
+  
+  const Toast = Swal.mixin({
+  toast: true,
+  width: tamaño,
+  position: 'top',
+  showConfirmButton: false,
+  timer: tiempo,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: icono,
+  title: palabra
+})
 
 }
 
@@ -72,8 +97,10 @@ let vocales_1 = ["ai", "A", "enter", "E", "imes", "I", "ober", "O", "ufat", "U"]
 
 let nube;
 
-let input = document.querySelector("#input");
-let input2 = document.querySelector("#input2");
+let titulo = document.querySelector("#titulo_2");
+
+let textTarea = document.querySelector("#textTarea");
+let textTarea_2 = document.querySelector("#textTarea_2");
 
 let boton = document.querySelector("#encriptar");
 boton.onclick = encriptar;

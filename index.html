@@ -7,29 +7,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Encriptador</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sweetAlert2/sweetalert2.min.css">
 </head>
 
 <body>
-  <h1 class="titulo">Encriptador de texto</h1>
+  <h1 id="titulo">Encriptador de texto</h1>
 
   <main class="main">
 
-    <section class="form box">
-      <input class="text-input" type="text" name="input-texto" id="input" placeholder="Ingrese el texto aqui">
+    <section id="caja">
+      <textarea type="text" name="textTarea" id="textTarea" placeholder="Ingrese el texto aqui"></textarea>
       <input class="btn" type="submit" value="Encriptar" id="encriptar">
       <input class="btn" type="submit" value="Desencriptar" id="desencriptar">
       <input class="btn" type="submit" value="Pegar" id="pegar">
       <input class="btn1" type="submit" value="Borrar" id="borrar">
     </section>
 
-    <section class="msg box">
-      <h2 id="">Mensaje encriptado</h2>
-      <input class="text-input" type="text" id="input2"></input>
+    <section id="caja_2">
+      <h2 id="titulo_2">Mensaje encriptado</h2>
+      <textarea type="text" readonly="readonly" name="textTarea_2" id="textTarea_2"></textarea>
       <input class="btn" type="submit" value="Copiar" id="copiar">
       <input class="btn1" type="submit" value="Borrar" id="borrar1">
     </section>
   </main>
 
+  <script src="sweetAlert2/sweetalert2.all.min.js"></script>
   <script src="script.js"></script>
 </body>
 
