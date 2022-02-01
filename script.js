@@ -14,8 +14,8 @@ function encriptar() {
     titulo.innerHTML = "Mensaje encriptado";
     textTarea_2.value = cambiar;
   } else {
-    alerta(470, 3000, "error", "Solo se permite letras en minúsculas");
     titulo.innerHTML = "Mensaje";
+    alerta(470, 3000, "error", "Solo se permite letras en minúsculas");
   }
 }
 
@@ -35,8 +35,8 @@ function desencriptar() {
     titulo.innerHTML = "Mensaje desencriptado";
     textTarea_2.value = cambiar;
   } else {
-    alerta(470, 3000, "error", "Solo se permite letras en minúsculas");
     titulo.innerHTML = "Mensaje";
+    alerta(470, 3000, "error", "Solo se permite letras en minúsculas");
   }
 }
 
